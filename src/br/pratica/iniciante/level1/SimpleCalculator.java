@@ -4,36 +4,58 @@ import java.util.Scanner;
 
 public class SimpleCalculator {
     public static void main(String[] args) {
-        int resultado;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*****Calculadora Simples*****" +
-                "\n↓↓↓Opções↓↓↓" +
-                "\n1 - Soma" +
-                "\n2 - Subtrair" +
-                "\n3 - Multiplicar" +
-                "\n4 - Dividir" +
-                "\nOBS: SÓ É POSSIVEL FAZER UMA FUNÇÃO POR VEZ!" +
-                "\n");
-        System.out.println("Digite o primeiro numero: ");
-        int n1 = scanner.nextInt();
-        System.out.println("Digite o segundo numero: ");
-        int n2 = scanner.nextInt();
-        System.out.println("Qual função deseja seguir com os numero " + n1 + " e " + n2 + " que informou: ");
-        int opção = scanner.nextInt();
-        if (opção == 1) {
-            resultado = n1 + n2;
-            System.out.println("A soma dos " + n1 + " + " + n2 + " = " + resultado);
-        }else if (opção == 2) {
-            resultado = n1 - n2;
-            System.out.println("A subtração dos " + n1 + " - " + n2 + " = " + resultado);
-        } else if (opção == 3) {
-            resultado = n1 * n2;
-            System.out.println("A multiplicação dos " + n1 + " * " + n2 + " = " + resultado);
-        } else if (opção == 4){
-            resultado = n1 / n2;
-            System.out.println("A divisão dos " + n1 + " / " + n2 + " = " + resultado);
-        } else {
-            System.out.println("ERRO! numero invalido tentar rodar novamente");
+        int resultado;
+        int opcao = -1;
+
+        while (opcao != 0){
+            System.out.println("""
+                ↓↓↓ Opções ↓↓↓
+                1 - Soma
+                2 - Subtrair
+                3 - Multiplicar
+                4 - Dividir
+                
+                0 - Sair
+                """);
+
+            System.out.println("Escolha a opção");
+            opcao = scanner.nextInt();
+
+            if (opcao == 0) {
+                System.out.println("Fechando a calculadora...");
+                break;
+            }
+
+            System.out.println("Digite o primeiro numero: ");
+            int n1 = scanner.nextInt();
+            System.out.println("Digite o segundo numero: ");
+            int n2 = scanner.nextInt();
+
+            switch (opcao){
+                case 1 -> {
+                    resultado = n1 + n2;
+                    System.out.println("Resultado da soma: " + resultado + "\n");
+                }
+                case 2 -> {
+                    resultado = n1 - n2;
+                    System.out.println("Resultado da subtração: " + resultado + "\n");
+                }
+                case 3 -> {
+                    resultado = n1 * n2;
+                    System.out.println("Resultado da multiplicação: " + resultado + "\n");
+                }
+                case 4 -> {
+                    if (n2 == 0) {
+                        System.out.println("Erro: não é possível dividir por zero!");
+                    } else {
+                        resultado = n1 / n2;
+                        System.out.println("Resultado da divisão: " + resultado + "\n");
+                    }
+                }
+                default -> System.out.println("Opção inválida!");
+
+            }
         }
     }
 }
