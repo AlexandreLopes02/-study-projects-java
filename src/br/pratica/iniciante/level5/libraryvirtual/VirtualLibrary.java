@@ -15,7 +15,7 @@ public class VirtualLibrary {
                     1 - Adicionar livro
                     2 - Listar livros
                     3 - Buscar livro
-                    4 - Remover libro
+                    4 - Remover livro
                     
                     0- SAIR
                     Escolha:
