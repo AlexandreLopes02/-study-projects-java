@@ -21,6 +21,7 @@ public class Venda {
         total += produto.getPreco() * quantidade;
     }
 
+
     public double getTotal() {
         return total;
     }
